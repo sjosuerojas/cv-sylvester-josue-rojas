@@ -1,0 +1,59 @@
+{
+  "name": "josh_dev_curriculum_server",
+  "version": "1.0.0",
+  "description": "Web solution for my personal curriculum vitae ;)",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development NODE_PATH=src/ nodemon ./src/index.js",
+    "format": "prettier --write 'src/**/*.js'",
+    "docs": "jsdoc -c jsdoc.json",
+    "start": "cross-env NODE_ENV=production NODE_PATH=src/ node ./src/index.js",
+    "deploy:pm2": "pm2 start ecosystem.config.yml --env production",
+    "stop:pm2": "pm2 stop CV_josh_server",
+    "log:pm2": "pm2 logs CV_josh_server",
+    "restart:pm2": "pm2 restart CV_josh_server",
+    "monit:pm2": "pm2 monit",
+    "save:pm2": "pm2 save"
+  },
+  "private": true,
+  "keywords": [
+    "mongo",
+    "pm2",
+    "jsonwebtoken",
+    "node",
+    "express"
+  ],
+  "author": "Josh Industries. <sjosuerojasc@gmail.com> (https://github.com/sjosuerojas)",
+  "license": "ISC",
+  "contributors": [
+    "Josue Rojas <sjosuerojasc@gmail.com> (https://github.com/sjosuerojas)"
+  ],
+  "homepage": "https://sjosuerojas.github.io/cv-sylvester-josue-rojas",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "handlebars": "^4.7.7",
+    "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.2",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.5.0",
+    "rand-token": "^1.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "express-handlebars": "^5.2.1",
+    "jsdoc": "^3.6.6",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "node": ">= 14.15.1",
+    "npm": ">= 6.14.8"
+  }
+}

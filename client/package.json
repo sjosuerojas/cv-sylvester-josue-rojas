@@ -1,0 +1,52 @@
+{
+  "name": "josh_dev_curriculum_client",
+  "version": "1.1.0",
+  "description": "Web solution for my personal curriculum vitae ;)",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "private": true,
+  "keywords": [
+    "react",
+    "react-dom",
+    "react-router",
+    "hooks"
+  ],
+  "author": "Josh Industries. <sjosuerojasc@gmail.com> (https://github.com/sjosuerojas)",
+  "license": "ISC",
+  "contributors": [
+    "Josue Rojas <sjosuerojasc@gmail.com> (https://github.com/sjosuerojas)"
+  ],
+  "homepage": "https://sjosuerojas.github.io/cv-sylvester-josue-rojas",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
