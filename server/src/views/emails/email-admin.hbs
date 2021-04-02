@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Email Message</title>
+    <style>
+        /* Basics */
+        body {
+            Margin: 0;
+            padding: 0;
+            min-width: 100%;
+            background-color: #f2f2f2;
+        }
+
+        table {
+            border-spacing: 0;
+            font-family: Helvetica, Arial, 'sans-serif';
+        }
+
+        td {
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        .webkit {
+            max-width: 600px;
+        }
+
+        /* Windows Phone Viewport Fix */
+        @-ms-viewport {
+            width: device-width;
+        }
+
+        .outer {
+            Margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <center class="wrapper">
+        <div class="webkit">
+            <table class="outer" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                <tr bgcolor="white">
+                    <td>
+                        <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"
+                            style="max-width: 600px;">
+                            <tr>
+                                <td width="100%" align="center" style="font-size: 0px;"><a href="https://tekbees.com"
+                                        target="_blank">
+                                        <img style="padding: 20px 0px;"
+                                            src="https://idunicus.com/wp-content/uploads/2020/11/logo-web.png"
+                                            height="65" alt="logo-tekbees" /></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr bgcolor="white">
+                    <td>
+                        <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0"
+                            style="max-width: 600px;">
+                            <tr bgcolor="white">
+                                <td width="100%"
+                                    style="text-align: center; font-size: 14px; padding: 0 40px; line-height: 23px; color: #004896; letter-spacing: 0px;">
+                                    <h4>Un nuevo Cliente portencial ingreso a probar el demo de Unicus </h4> 
+                                  
+                                </td>
+                            </tr>
+                        </table>
+                        <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0"
+                            style="max-width: 600px;">
+                            <tr bgcolor="white">
+                                <td width="100%" style="text-align: left; font-size: 14px; padding: 0 40px; line-height: 23px; color: #252627; letter-spacing: 0px;">
+                                    <ul>
+                                        <li>Nombres: {{ OleCTisTARDEsPH_firstname }} </li>
+                                        <li>Apellidos: {{ OleCTisTARDEsPH_lastname }} </li>
+                                        <li>Email: {{ OleCTisTARDEsPH_email }} </li>
+                                        <li>Pais: {{ OleCTisTARDEsPH_country }} </li>
+                                        <li>Compañia: {{ OleCTisTARDEsPH_company }} </li>
+                                        <li>Telefono: {{ OleCTisTARDEsPH_phone }} </li>
+                                        <li>Interesado en trabajar conmigo por motivos: {{ OleCTisTARDEsPH_question_1 }} </li> 
+                                    </ul> 
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr bgcolor="white">
+                    <td>
+                        <table align="center" border="0" width="100%" cellpadding="0" cellspacing="0"
+                            style="max-width: 600px;">
+                            <tr bgcolor="white">
+                                <td width="100%"
+                                    style="text-align: center; font-size: 14px; padding: 20px 40px; line-height: 23px; color: #7d7d7d; letter-spacing: 0px;">
+                                    Contáctanos en cualquier momento para consultas o dudas.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr bgcolor="white">
+                    <td align="center" style="padding-bottom: 40px;">
+                        <table align="center"
+                            style="max-width: 250px; display: inline-block; vertical-align: middle; padding: 10px;">
+                            <tr>
+                                <td align="center" width="100%"><a
+                                        href="https://api.whatsapp.com/send?phone=57{{ OleCTisTARDEsPH_phone }}&amp;text=Hola%20!Mucho%20gusto%20quisiera%20aegandar%20una%20reunion%20contigo.%20Estarias%20disponible"
+                                        target="_blank"
+                                        style="text-decoration: none; color: #ffffff; font-weight: bold;">
+                                        <fieldset
+                                            style="width: 180px; font-weight: bold; color: #ffffff; font-size: 14px; line-height: 25px; background-color: #32992C; border: none; padding: 15px; letter-spacing: 1px;">
+                                            <img style="vertical-align: middle; padding: 0px 10px;"
+                                                src="https://idunicus.com/2021/demo/whatsapp.png" width="22"
+                                                height="22" alt="whatsapp" /><span
+                                                style="padding: 0px 10px;">WhatsApp</span>
+                                        </fieldset>
+                                    </a></td>
+                            </tr>
+                        </table>
+                        <table align="center"
+                            style="max-width: 250px; display: inline-block; vertical-align: middle; padding: 10px;">
+                            <tr>
+                            <tr>
+                                <td align="center" width="100%"><a href="tel:{{ OleCTisTARDEsPH_phone }}" target="_blank"
+                                        style="text-decoration: none; color: #ffffff; font-weight: bold;">
+                                        <fieldset
+                                            style="width: 180px; font-weight: bold; color: #ffffff; font-size: 14px; line-height: 25px; background-color: #441d8a; border: none; padding: 15px; letter-spacing: 1px;">
+                                            <img style="vertical-align: middle; padding: 0px 10px;"
+                                                src="https://idunicus.com/2021/demo/phone.png" width="22"
+                                                height="22" alt="whatsapp" /><span
+                                                style="padding: 0px 10px;">Llamar cliente</span>
+                                        </fieldset>
+                                    </a>
+                                </td>
+                            </tr>
+                </tr>
+            </table>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <table align="center" width="100%" border="0" bgcolor="#f2f2f2" cellpadding="0" cellspacing="0"
+                        style="max-width: 600px; padding: 0px 0px;">
+                        <tr>
+                            <td width="100%" align="center" style="font-size: 11px; padding: 15px 10px 0px 10px;"><a
+                                    href="https://www.facebook.com/tekbees/" target="_blank"
+                                    style="color: blue; text-decoration: none;">Compartir en
+                                    Facebook</a> | <a href="https://twitter.com/Tekbees" target="_blank"
+                                    style="color: blue; text-decoration: none;">Compartir en Twitter</a>
+                                | <a href="https://tekbees.com/contactenos/" target="_blank"
+                                    style="color: blue; text-decoration: none;">Contáctanos</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table align="center" width="100%" border="0" bgcolor="#f2f2f2" cellpadding="0" cellspacing="0"
+                        style="max-width: 600px; padding: 0px 0px;">
+                        <tr>
+                            <td width="100%"
+                                style="color: #7e7e7e; font-size: 11px; text-align: center; padding: 5px 30px 20px 30px; line-height: 18px;">
+                                <strong>© Copyright 2020 | Tekbees Inc </strong> <br>Todos los derechos
+                                reservados
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </td>
+            </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>

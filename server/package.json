@@ -4,9 +4,9 @@
   "description": "Web solution for my personal curriculum vitae ;)",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development NODE_PATH=src/ nodemon ./src/index.js",
     "format": "prettier --write 'src/**/*.js'",
     "docs": "jsdoc -c jsdoc.json",
+    "dev": "cross-env NODE_ENV=development NODE_PATH=src/ nodemon ./src/index.js",
     "start": "cross-env NODE_ENV=production NODE_PATH=src/ node ./src/index.js",
     "deploy:pm2": "pm2 start ecosystem.config.yml --env production",
     "stop:pm2": "pm2 stop CV_josh_server",
