@@ -9,7 +9,10 @@ const jwt = require('jsonwebtoken')
  * @description sendEmailToLead
  * @returns Promise<obj> data | <obj> err
  */
-const sendEmailToLead = ({ OleCTisTARDEsPH_email, OleCTisTARDEsPH_firstname }) => {
+const sendEmailToLead = ({
+  OleCTisTARDEsPH_email,
+  OleCTisTARDEsPH_firstname,
+}) => {
   return new Promise((resolve, reject) => {
     const options = {
       templateName: 'email-contact-me',
@@ -93,15 +96,15 @@ exports.saveLeadData = (req, res) => {
  * @returns Promise<obj> data | <obj> err
  */
 exports.renovateToken = (req, res) => {
-  const uid = randtoken.uid(16);
+  const uid = randtoken.uid(16)
 
   const token = jwt.sign({ data: app.apiKey }, app.secret, {
     expiresIn: '5m',
-  });
+  })
 
   res.status(200).json({
     statusOk: true,
     data: { uid },
     token,
-  });
+  })
 }

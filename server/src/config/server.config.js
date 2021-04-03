@@ -25,12 +25,12 @@ exports.initConfig = function (app) {
   app.use(cors(corsOptions))
   /**
    * @description Handles form-url endcoded is extended (n)mb +
-   * @author bodyParser
+   * @author expressParser
    */
   app.use(express.urlencoded({ extended: true }))
   /**
    * @description Handles json parser is extended (n)mb +
-   * @author bodyParser
+   * @author expressParser
    */
   app.use(express.json())
   /**
