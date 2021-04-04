@@ -19,7 +19,6 @@ const Lead = new Schema({
   },
   OleCTisTARDEsPH_company: {
     type: String,
-    required: [true, 'company field is required'],
   },
   OleCTisTARDEsPH_phone: {
     type: String,

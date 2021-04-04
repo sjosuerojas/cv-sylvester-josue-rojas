@@ -878,6 +878,10 @@ a.goto-social, a.goto-social:hover {
   float: left;
   width: 70%; }
 
+/******** Skills Sec CSS********/
+span#toggleSkills { cursor: pointer; }
+#sec_hidden_skills{ display: none; }
+
 /********Contact Sec CSS********/
 .contact-wrap .form-control {
   -moz-border-bottom-colors: none;
@@ -934,7 +938,7 @@ a.goto-social, a.goto-social:hover {
   position: relative; }
 .contact-wrap .input-wrap i {
   display: none; }
-.contact-wrap input {
+.contact-wrap input, .contact-wrap select {
   height: 80px; }
 .contact-wrap .btn {
   background: #fff;

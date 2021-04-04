@@ -30,13 +30,6 @@ const LeadSchema = {
       options: { min: 2 },
     },
   },
-  company: {
-    in: ['body'],
-    isLength: {
-      errorMessage: 'company must be at least greater than 4 characters',
-      options: { min: 4 },
-    },
-  },
   phone: {
     in: ['body'],
     isInt: true,

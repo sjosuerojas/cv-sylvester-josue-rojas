@@ -124,7 +124,6 @@ var timelineheightCal = function () {
 /***** penelope function start *****/
 var penelope = function () {
   /** particlesJS */
-
   particlesJS("particles-js", {
     particles: {
       number: {
@@ -260,39 +259,26 @@ var penelope = function () {
     // defaults to false for infinite loop
     loopCount: false,
   });
+
+  $("#emailme-typed").typed({
+    strings: [
+      ' email me at <a href="mailto:sjosuerojasc@gmail.com">sjosuerojasc@gmail.com</a>',
+      ' search my profile on Facebook on <a target="_black" href="https://www.facebook.com/sylvesterjosue.rojascanon">sylvesterjosue.rojascanon</a>',
+      ' send a personal message on twitter to <a target="_black" href="https://twitter.com/SlyJosue">SlyJosue</a>',
+      ' call me anytime <a href="tel:+573002498436"> +57 3002498436 </a>',
+      ' lastly send me a message on WhatsApp <a target="_black" href="https://wa.link/ifqrz0">Click here</a>'
+    ],
+    typeSpeed: 30,
+    backDelay: 3500,
+    loop: true,
+    cursorChar: "|",
+    contentType: "html", // or text
+    // defaults to false for infinite loop
+    loopCount: Infinity,
+  });
   /*Typed js end*/
 
-  /*Client carousel start*/
-  $("#client_sec .client-carousel").owlCarousel({
-    loop: true,
-    margin: 15,
-    nav: false,
-    dots: false,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      200: {
-        items: 2,
-      },
-      400: {
-        items: 3,
-      },
-      600: {
-        items: 4,
-      },
-      1200: {
-        items: 3,
-      },
-      1300: {
-        items: 4,
-      },
-      1600: {
-        items: 5,
-      },
-    },
-  });
-  /*Client carousel end*/
+  
 
   /*Header animation start*/
   var scroll = $(window).scrollTop();
@@ -370,6 +356,10 @@ $(document).on("click", ".navbar-collapse.in a", function (e) {
   return false;
 });
 /***** Click function end *****/
+
+$(document).on("click", "#toggleSkills", function() {
+  $('#sec_hidden_skills').toggle();
+})
 
 /***** MasonryPortfolio function start *****/
 if ($(".portfolio-wrap").length > 0) {
