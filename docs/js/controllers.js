@@ -13,7 +13,7 @@ app.controller("ContactController", function ($scope, $http) {
     if (contactform.$valid) {
       $http({
         method: "POST",
-        url: "http://localhost:1230/api/request-lead",
+        url: "https://cv-josh-server.herokuapp.com/api/request-lead",
         data: $.param($scope.formData), //param method from jQuery
         headers: {
           "X-Api":
