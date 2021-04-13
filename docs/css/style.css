@@ -23,17 +23,17 @@ Project:	Eric
 /****************************/
 /** Imports **/
 /****************************/
-@import url(animate.css);
-@import url(font-awesome.min.css);
-@import url(pe-icon-7-stroke.css);
-@import url(et-line-font.css);
-@import url(bootstrap.min.css);
-@import url(owl.carousel.css);
-@import url(owl.theme.default.min.css);
-@import url(inputtext.css);
-@import url(filter.css);
-@import url(default-skin/default-skin.css);
-@import url(lightgallery.css);
+@import url(libs/animate.css);
+@import url(libs/font-awesome.min.css);
+@import url(libs/pe-icon-7-stroke.css);
+@import url(libs/et-line-font.css);
+@import url(libs/bootstrap.min.css);
+@import url(libs/owl.carousel.css);
+@import url(libs/owl.theme.default.min.css);
+@import url(libs/inputtext.css);
+@import url(libs/filter.css);
+@import url(libs/default-skin/default-skin.css);
+@import url(libs/lightgallery.css);
 /****************************/
 /** Reset **/
 /****************************/
@@ -226,6 +226,23 @@ p {
 .opacity-hide {
   opacity: 0;
   visibility: hidden; }
+
+.d-flex { display: flex; }
+
+.ui-tabs-tab {
+  width: 100%;
+  height: auto;
+  max-height: 37px;
+  max-width: 127px;
+  margin: 0 14px; 
+  margin-bottom: 2rem;
+  background: #0f0f0f;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid red;
+  text-align: center;
+  box-shadow: 4px 0px 4px #050505;
+}
 
 .center-div {
   margin: 0 auto;
@@ -1378,6 +1395,10 @@ footer .goto-top {
   .margin-top-xs-50 {
     margin-top: 50px; } }
 @media only screen and (max-width: 414px) {
+  h6 { font-size: 12px; }
+  .ui-tabs-tab {
+    margin: 0 1px;
+    margin-bottom: 2rem; }
   footer .available-wrap .available-tag {
     font-size: 13px; }
   footer .available-wrap .available-pointer {

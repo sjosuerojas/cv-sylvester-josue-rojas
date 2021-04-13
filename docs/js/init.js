@@ -26,7 +26,7 @@
 /*****Load function start*****/
 $(window).on("load", function () {
   /*Page load animaion start*/
-  $("#pre_load").delay(500).fadeOut("slow");
+  $("#pre_load").delay(500).fadeOut();
   $("body").css("overflow-y", "visible");
   /*Page load animaion end*/
   onResizePort();
@@ -47,6 +47,8 @@ $(window).on("scroll", function () {
   /*Header animaion onscroll*/
 });
 /*****Scroll function start*****/
+
+$( "#tabs" ).tabs();
 
 /***** Full height function start *****/
 var setHeight = function () {

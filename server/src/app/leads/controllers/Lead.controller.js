@@ -58,13 +58,13 @@ exports.saveLeadData = (req, res) => {
   const body = req.body
 
   const Lead = new LeadDB({
-    OleCTisTARDEsPH_firstname: body.firstname,
-    OleCTisTARDEsPH_lastname: body.lastname,
-    OleCTisTARDEsPH_email: body.email,
-    OleCTisTARDEsPH_country: body.country,
-    OleCTisTARDEsPH_company: body.company,
-    OleCTisTARDEsPH_phone: body.phone,
-    OleCTisTARDEsPH_question_1: body.question_1,
+    OleCTisTARDEsPH_firstname: body.inputName,
+    OleCTisTARDEsPH_lastname: body.inputLastname,
+    OleCTisTARDEsPH_email: body.inputEmail,
+    OleCTisTARDEsPH_country: body.inputCountry,
+    OleCTisTARDEsPH_company: body.inputCompany,
+    OleCTisTARDEsPH_phone: body.inputPhone,
+    OleCTisTARDEsPH_question_1: body.inputQuestion1,
   })
 
   Lead.save(async (err, dbResponse) => {
@@ -77,7 +77,7 @@ exports.saveLeadData = (req, res) => {
 
     res.status(201).json({
       statusOk: true,
-      message: `Solicitud recibida, ${dbResponse._id}`,
+      message: `Succesfully sent, I too have sent you a personal message to: ${body.inputEmail}`,
     })
 
     /** Async Request */

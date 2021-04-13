@@ -17,7 +17,7 @@ app.controller("ContactController", function ($scope, $http) {
         data: $.param($scope.formData), //param method from jQuery
         headers: {
           "X-Api":
-            "9wjBdyvd*JINkAbyLz3R*h!z^RK@0W8S4N02P1arFmLX#Revr*xvnN!yNc@2",
+            "Basic 9wjBdyvd*JINkAbyLz3R*h!z^RK@0W8S4N02P1arFmLX#Revr*xvnN!yNc@2",
           "Content-Type": "application/x-www-form-urlencoded",
         }, //set the headers so angular passing info as form data (not request payload)
       }).success(function (data) {

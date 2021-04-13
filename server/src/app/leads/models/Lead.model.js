@@ -1,19 +1,19 @@
 const LeadSchema = {
-  firstname: {
+  inputName: {
     in: ['body'],
     isLength: {
       errorMessage: 'firstname must be at least greater than 4 characters',
       options: { min: 4 },
     },
   },
-  lastname: {
+  inputLastname: {
     in: ['body'],
     isLength: {
       errorMessage: 'lastname must be at least greater than 4 characters',
       options: { min: 4 },
     },
   },
-  email: {
+  inputEmail: {
     in: ['body'],
     isLength: {
       errorMessage: 'email must be at least greater than 5 characters',
@@ -23,18 +23,18 @@ const LeadSchema = {
       bail: true,
     },
   },
-  country: {
+  inputCountry: {
     in: ['body'],
     isLength: {
       errorMessage: 'country must be at least greater than 2 characters',
       options: { min: 2 },
     },
   },
-  phone: {
+  inputPhone: {
     in: ['body'],
     isInt: true,
   },
-  question_1: {
+  inputQuestion1: {
     in: ['body'],
     isLength: {
       errorMessage: 'question_1 must be at least greater than 5 characters',
