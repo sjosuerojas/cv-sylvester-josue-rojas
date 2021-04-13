@@ -3,7 +3,7 @@ require('dotenv-flow').config()
 module.exports = {
   app: {
     url: process.env.APP_FRONTEND,
-    port: process.env.APP_PORT,
+    port: process.env.PORT,
     apiKey: process.env.APP_APIKEY,
     secret: process.env.ACCESS_TOKEN_SECRET,
     enviroment: process.env.NODE_ENV,
