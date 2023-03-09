@@ -1,8 +1,8 @@
 @import url('./layout.css');
-@import url('../assets/libs/magnific-popup.css');
-@import url('../assets/libs/animate.css');
-@import url('../assets/libs/jarallax.css');
-@import url('../assets/libs/owl.carousel.css');
-@import url('../assets/libs/swiper.css');
-@import url('../assets/libs/fontawesome.css');
+@import url('./libs/magnific-popup.css');
+@import url('./libs/animate.css');
+@import url('./libs/jarallax.css');
+@import url('./libs/owl.carousel.css');
+@import url('./libs/swiper.css');
+@import url('./libs/fontawesome.css');
 @import url('./defaut-theme.css');
