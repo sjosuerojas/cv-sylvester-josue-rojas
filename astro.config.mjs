@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 /** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
-  base: "/cv-sylvester-josue-rojas",
+  base: "/docs",
   site: "https://sjosuerojas.github.io",
   integrations: [
     image({
