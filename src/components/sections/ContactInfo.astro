@@ -1,0 +1,104 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields } from "../../models/content.model";
+import Container from "../shared/Container.astro";
+import SectionHeader from "../shared/SectionHeader.astro";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<Container class="contacts" id="more-info">
+  <SectionHeader>
+    <Fragment slot="title">{data.fields.title}</Fragment>
+    <Fragment slot="subtitle">{data.fields.legend}</Fragment>
+  </SectionHeader>
+
+  <!-- contact form -->
+  <div class="contact-form">
+    <form id="cform" method="post">
+      <div class="group-val">
+        <div class="label">
+          {data.fields.formFields.name_field.label}
+          <strong>*</strong>
+        </div>
+        <input
+          type="text"
+          name="name"
+          placeholder={data.fields.formFields.name_field.placeholder}
+        />
+      </div>
+      <div class="group-val">
+        <div class="label">
+          {data.fields.formFields.email_field.label}
+          <strong>*</strong>
+        </div>
+        <input
+          type="email"
+          name="email"
+          placeholder={data.fields.formFields.email_field.placeholder}
+        />
+      </div>
+      <div class="group-val">
+        <div class="label">
+          {data.fields.formFields.message_field.label}
+          <strong>*</strong>
+        </div>
+        <textarea
+          name="message"
+          placeholder={data.fields.formFields.message_field.placeholder}
+        ></textarea>
+      </div>
+      <div class="group-bts">
+        <button type="submit" class="btn">
+          <span class="animated-button">
+            <span>
+              {data.fields.formFields.send_btn.label}
+            </span>
+          </span>
+          <i class={data.fields.formFields.send_btn.icon}></i>
+        </button>
+      </div>
+    </form>
+    <div class="alert-success">
+      <p>{data.fields.formFields.alert_msg}</p>
+    </div>
+  </div>
+
+  <!-- contact info -->
+  <div class="contact-info">
+    <div class="name">{data.fields.properties.name}</div>
+    <div class="subname">{data.fields.properties.subname}</div>
+    <div class="info-list">
+      <ul>
+        <li>
+          <strong>{data.fields.infoKey[0]}:</strong>
+          {data.fields.properties.residence}
+        </li>
+        <li>
+          <strong>{data.fields.infoKey[1]}:</strong>
+          {data.fields.properties.freelance}
+        </li>
+        <li>
+          <strong>{data.fields.infoKey[2]}:</strong>
+          {data.fields.properties.specialty}
+        </li>
+        <li>
+          <strong>{data.fields.infoKey[3]}:</strong>
+          {data.fields.properties.phone}
+        </li>
+        <li>
+          <strong>{data.fields.infoKey[4]}:</strong>
+          {data.fields.properties.mail}
+        </li>
+      </ul>
+    </div>
+    <div class="author">{data.fields.properties.name}</div>
+  </div>
+
+  <div class="clear"></div>
+</Container>

@@ -1,0 +1,109 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields, Filter, BoxItem } from "../../models/content.model";
+import Container from "../shared/Container.astro";
+import SectionHeader from "../shared/SectionHeader.astro";
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<Container class="works" id="portfolio">
+  <SectionHeader>
+    <Fragment slot="title">{data.fields.title}</Fragment>
+    <Fragment slot="subtitle">{data.fields.legend}</Fragment>
+  </SectionHeader>
+
+  <!-- filter -->
+  <div class="filter-menu">
+    <div class="filters">
+      {
+        data.fields.filters.map((item: Filter) => (
+          <div class="btn-group">
+            <label data-text={item.dataText} class="glitch-effect">
+              <input type="radio" name={item.name} value={`${item.value}`} />
+              {item.dataText}
+            </label>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- portfolio items -->
+  <div class="box-items">
+    {
+      data.fields.boxItems.map((item: BoxItem) => (
+        <div class:list={["box-col", item.className]}>
+          <div class="box-item">
+            <div class="image">
+              <a
+                href={`#popup-${item.imageUrl.split("/", 7)[5]}`}
+                class="has-popup-media"
+              >
+                <Image
+                  src={item.imageUrl}
+                  width={340}
+                  height={226}
+                  alt={item.category}
+                  format="png"
+                />
+                <span class="info">
+                  <span class="centrize full-width">
+                    <span class="vertical-center">
+                      <i class="icon fas fa-plus" />
+                    </span>
+                  </span>
+                </span>
+              </a>
+            </div>
+            <div class="desc">
+              <div class="category">{item.category}</div>
+              <a
+                href={`#popup-${item.imageUrl.split("/", 7)[5]}`}
+                class="name has-popup-media"
+              >
+                {item.nameCategory}
+              </a>
+            </div>
+            <div
+              id={`popup-${item.imageUrl.split("/", 7)[5]}`}
+              class="popup-box mfp-fade mfp-hide"
+            >
+              <div class="content">
+                <div class="image">
+                  <Image
+                    src={item.imageUrl}
+                    width={520}
+                    height={347}
+                    alt={item.category}
+                    format="png"
+                  />
+                </div>
+                <div class="desc">
+                  <div class="category">{item.category}</div>
+                  <h4>{item.nameCategory}</h4>
+                  <p>{item.description}</p>
+                  {item.btnHref !== "#" && (
+                    <a href={item.btnHref} target="_blank" class="btn">
+                      <span class="animated-button">
+                        <span>{item.btnText}</span>
+                      </span>
+                      <i class="icon fas fa-chevron-right" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="clear"></div>
+</Container>

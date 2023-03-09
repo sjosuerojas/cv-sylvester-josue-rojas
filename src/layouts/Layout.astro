@@ -1,0 +1,139 @@
+---
+import { SEO } from "astro-seo";
+import type { Entry } from "contentful";
+import type { ItemFields } from "../models/content.model";
+import Preloader from "../components/shared/Preloader.astro";
+import Header from "../components/shared/Header.astro";
+import Footer from "../components/shared/Footer.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  lang: string;
+  content: Entry<ItemFields>[];
+}
+
+const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const pathScripts = `${BASE_GITHUB}scripts`;
+
+const resolvedImageWithDomain = new URL(
+  `${BASE_GITHUB}opengraph.jpg`,
+  Astro.site
+).toString();
+
+const { title, lang, content } = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "CV Portfolio"
+  : "CV Josue Rojas - Portfolio";
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="author" content="Josue Rojas" />
+    <meta name="generator" content={Astro.generator} />
+    {
+      lang === "en-US" ? (
+        <SEO
+          title={makeTitle}
+          description="CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier."
+          canonical={canonicalURL}
+          twitter={{
+            creator: "@SlyJosue",
+            title: makeTitle,
+            description:
+              "CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier.",
+            site: "@sjosuerojas.github.io",
+            image: resolvedImageWithDomain,
+            imageAlt: "Website Portfolio Josue Rojas",
+            card: "summary_large_image",
+          }}
+          openGraph={{
+            basic: {
+              url: canonicalURL,
+              type: "website",
+              title: `CV Josue Rojas - Portfolio Website`,
+              image: resolvedImageWithDomain,
+            },
+            image: {
+              alt: "CV Josue Rojas Website Screenshot",
+            },
+          }}
+        />
+      ) : (
+        <SEO
+          title={makeTitle}
+          description="CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios."
+          canonical={canonicalURL}
+          twitter={{
+            creator: "@SlyJosue",
+            title: makeTitle,
+            description:
+              "CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios.",
+            site: "@sjosuerojas.github.io",
+            image: resolvedImageWithDomain,
+            imageAlt: "Website Portfolio Josue Rojas",
+            card: "summary_large_image",
+          }}
+          openGraph={{
+            basic: {
+              url: canonicalURL,
+              type: "website",
+              title: `CV Josue Rojas - Portfolio Website`,
+              image: resolvedImageWithDomain,
+            },
+            image: {
+              alt: "CV Josue Rojas Website Screenshot",
+            },
+          }}
+        />
+      )
+    }
+
+    <!-- Fonts -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mr+Dafoe&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="home">
+    <!-- Preloader -->
+    <Preloader />
+    <div class="container">
+      <Header lang={lang} content={content} />
+      <div class="wrapper">
+        <slot />
+      </div>
+      <Footer />
+    </div>
+    <!-- Scripts -->
+    <script is:inline src={`${pathScripts}/jquery.min.js`}></script>
+    <script is:inline src={`${pathScripts}/velocity.min.js`}></script>
+    <script is:inline src={`${pathScripts}/jquery.validate.js`}></script>
+    <script is:inline src={`${pathScripts}/magnific-popup.js`}></script>
+    <script is:inline src={`${pathScripts}/typed.js`}></script>
+    <script is:inline src={`${pathScripts}/jarallax.js`}></script>
+    <script is:inline src={`${pathScripts}/jarallax-video.js`}></script>
+    <script is:inline src={`${pathScripts}/jarallax-element.js`}></script>
+    <script is:inline src={`${pathScripts}/imagesloaded.pkgd.js`}></script>
+    <script is:inline src={`${pathScripts}/isotope.pkgd.js`}></script>
+    <script is:inline src={`${pathScripts}/owl.carousel.js`}></script>
+    <script is:inline src={`${pathScripts}/swiper.js`}></script>
+    <script is:inline src={`${pathScripts}/main.js`}></script>
+  </body>
+</html>

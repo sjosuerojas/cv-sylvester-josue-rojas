@@ -1,89 +1,55 @@
-# Curriculum Vitae | Josue Rojas
-
-(Working on my own Docs, this is a template Readme it's not my contribution)
-
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20Vue%20Admin%20Template%20&url=http://coreui.io/vue/&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
-
-
-![Template](https://coreui.io/images/github/vue-free-template-3.gif)
-
-## Description
-
-Why I decided to create a full-project to just my curriculum vitae? Please allow me to explain you more about me... I just really love coding, mostly about this is a project for allowing people interested in my work just can see the easy way for coding a simple solution.
-
-**This is not another web page to simply show my experience** It goes way beyond a simple curriculum vitae. It contains a full stack Javascript way to develop this solution. 
-
-- A Client side for the curriculum 
-- A Server side for the request of the contact form and more...
-- Another Client side app that allows to administrate the curriculum requests
-
-**NOTE:** Please remember to star this project to get new versions updates of this template.
-
-### Demo
-
-A fully functional demo is available at [Here](https://github.com/sjosuerojas/cv-sylvester-josue-rojas)
-
-### Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#copyright-and-license)
-- [Support CoreUI Development](#support-coreui-development)
-
-### Installation
-
-#### Clone repo
-
-``` bash
-# clone the repo
-$ git clone https://github.com/sjosuerojas/cv-sylvester-josue-rojas.git CV Admin
-
-# go into app's directory
-$ cd CV Admin
-
-# install app's dependencies in every folder to be completed
-$ npm install
-```
-
-#### Usage
-
-``` bash
-# Client CV
-npm run start
-
-# Server CV
-npm run start
-
-# Admin CV
-ng serve -o
+# Astro Starter Kit: Basics
 
 ```
+npm create astro@latest -- --template basics
+```
 
-For a detailed explanation on how things work, check out the [Vue CLI Guide](https://cli.vuejs.org/guide/).
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-### Documentation
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-CoreUI tools documentation:
+![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
 
-- Components documentation: [CoreUI Vue library](https://coreui.io/vue/docs)
-- Styles documentation: [CoreUI styles](https://coreui.io/docs/3.0-beta/)
-- Icons documentation: [CoreUI Icons](http://coreui.io/icons)
-### Contributing
 
-Please read through our [contributing guidelines](https://github.com/coreui/coreui-free-vue-admin-template/blob/master/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
-## Admin side
+## 🚀 Project Structure
 
-| Default Theme | Legacy Theme | Dark Layout |
-| --- | --- | --- |
-| [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_default.png)](https://coreui.io/pro/vue/) | [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_legacy.png)](https://coreui.io/pro/vue/)| [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_dark.png)](https://coreui.io/pro/vue/)
+Inside of your Astro project, you'll see the following folders and files:
 
-## Copyright and license
+```
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   └── Card.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-Copyright 2020 creativeLabs Łukasz Holeczek. Code released under [the MIT license](https://github.com/coreui/coreui-free-vue-admin-template/blob/master/LICENSE).
-There is only one limitation - you cannot re-distribute the `CoreUI` as stock nor if you modify the `CoreUI`. In the past we faced some problems with persons who tried to sell `CoreUI` based templates.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Support CoreUI Development
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-CoreUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying [PRO version](https://coreui.io/pro/).
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:3000`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

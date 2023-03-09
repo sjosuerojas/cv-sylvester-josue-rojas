@@ -1,0 +1,51 @@
+---
+import { contentfulClient } from "../libs/contenful";
+import type { ItemFields } from "../models/content.model";
+import Layout from "../layouts/Layout.astro";
+import Started from "../components/sections/Started.astro";
+import About from "../components/sections/About.astro";
+import Services from "../components/sections/Services.astro";
+import Pricing from "../components/sections/Pricing.astro";
+import Resume from "../components/sections/Resume.astro";
+import LanguagesSkills from "../components/sections/LanguagesSkills.astro";
+import CodingSkills from "../components/sections/CodingSkills.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import Works from "../components/sections/Works.astro";
+import ContactInfo from "../components/sections/ContactInfo.astro";
+import Experience from "../components/sections/Experience.astro";
+import BackgroundGardient from "../components/shared/BackgroundGardient.astro";
+
+const contentTypes = await contentfulClient.getEntries<ItemFields>({
+  locale: "es",
+});
+
+const getContentById = (id: string) =>
+  contentTypes.items.filter((item) => item.metadata.tags[0].sys.id === id);
+---
+
+<Layout lang="es-ES" title="Josue Rojas" content={getContentById("head")}>
+  <!-- Background -->
+  <BackgroundGardient />
+  <!-- Section Started -->
+  <Started content={getContentById("started")} />
+  <!-- Section About -->
+  <About content={getContentById("about")} />
+  <!-- Section Services -->
+  <Services content={getContentById("services")} />
+  <!-- Section Pricing -->
+  <Pricing content={getContentById("pricing")} />
+  <!-- Section Resume -->
+  <Resume content={getContentById("resume")} />
+  <!-- Section Resume -->
+  <Experience content={getContentById("experience")} />
+  <!-- Section Languages Skills -->
+  <LanguagesSkills content={getContentById("languages")} />
+  <!-- Section Coding Skills -->
+  <CodingSkills content={getContentById("skills")} />
+  <!-- Section Testimonials -->
+  <Testimonials content={getContentById("testimonials")} />
+  <!-- Section Works -->
+  <Works content={getContentById('works')} />
+  <!-- Section Contact Info -->
+  <ContactInfo content={getContentById("contact")} />
+</Layout>
