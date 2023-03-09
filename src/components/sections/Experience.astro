@@ -1,0 +1,45 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields, Education } from "../../models/content.model";
+import Container from "../shared/Container.astro";
+import SectionHeader from "../shared/SectionHeader.astro";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<Container class="resume" id="experience">
+  <SectionHeader>
+    <Fragment slot="title">{data.fields.title}</Fragment>
+    <Fragment slot="subtitle">{data.fields.legend}</Fragment>
+  </SectionHeader>
+
+  <!-- resume items -->
+  <div class="content-carousel">
+    <div class="owl-carousel" data-slidesview="2" data-slidesview_mobile="1">
+      {
+        data.fields.experience.map((item: Education) => (
+          <div class="item">
+            <div class="resume-item">
+              <div class="date">{item.date}</div>
+              <div class="name">{item.name}</div>
+              <div class="single-post-text">
+                <p>{item.single_post_text}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- navigation -->
+    <div class="navs">
+      <span class="prev fas fa-chevron-left"></span>
+      <span class="next fas fa-chevron-right"></span>
+    </div>
+  </div>
+</Container>

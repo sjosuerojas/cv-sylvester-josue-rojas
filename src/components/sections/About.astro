@@ -1,0 +1,57 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields } from "../../models/content.model";
+import Container from "../shared/Container.astro";
+import SectionHeader from "../shared/SectionHeader.astro";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<Container class="about" id="about">
+  <SectionHeader>
+    <Fragment slot="title">{data.fields.title}</Fragment>
+    <Fragment slot="subtitle">{data.fields.legend}</Fragment>
+  </SectionHeader>
+
+  <!-- text -->
+  <div class="cols">
+    <div class="col">
+      <div class="single-post-text">
+        <p>
+          {data.fields.post1.content[0].content[0].value}
+        </p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="single-post-text">
+        <p>
+          {data.fields.post2.content[0].content[0].value}
+        </p>
+      </div>
+    </div>
+    <div class="col col-full">
+      <div class="single-post-text">
+        <p>
+          {data.fields.post3.content[0].content[0].value}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- info list -->
+  <div class="info-list">
+    <ul>
+      <li><strong>{data.fields.infoKey[0]}:</strong> {data.fields.infoList[0]}</li>
+      <li><strong>{data.fields.infoKey[1]}:</strong> {data.fields.infoList[1]}</li>
+      <li><strong>{data.fields.infoKey[2]}:</strong> {data.fields.infoList[2]}</li>
+      <li><strong>E-{data.fields.infoKey[3]}:</strong> {data.fields.infoList[3]}</li>
+    </ul>
+  </div>
+
+  <div class="clear"></div>
+</Container>

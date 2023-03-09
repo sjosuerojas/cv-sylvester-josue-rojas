@@ -1,0 +1,52 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields } from "../../models/content.model";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<div class="section started" id="section-started">
+  <div class="centrize full-width">
+    <div class="vertical-center">
+      <!-- title -->
+      <h1 class="h-title">
+        <!-- Josué <br />Rojas -->
+        {data.fields.titleId[0]} <br />
+        {data.fields.titleId[1]}
+      </h1>
+
+      <!-- content started -->
+      <div class="started-content">
+        <!-- subtitle -->
+        <div class="h-subtitles">
+          <div class="h-subtitle typing-subtitle">
+            <p>{data.fields.subtitle[0]}</p>
+            <p>{data.fields.subtitle[1]}</p>
+          </div>
+          <span class="typed-subtitle"></span>
+        </div>
+
+        <!-- text -->
+        <div class="h-text">
+          {data.fields.description.content[0].content[0].value}
+        </div>
+
+        <!-- button -->
+        <a href="https://wa.link/yby10h" target="_blank" class="btn">
+          <span class="animated-button"><span>{data.fields.cta}</span></span>
+          <i class="icon fas fa-chevron-right"></i>
+        </a>
+
+        <!-- mosue button -->
+        <a href="#" class="btn mouse-btn" style="display: none;">
+          <i class="icon fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

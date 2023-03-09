@@ -1,0 +1,43 @@
+---
+import type { Entry } from "contentful";
+import type { ItemFields, FieldsItem } from "../../models/content.model";
+import Container from "../shared/Container.astro";
+import SectionHeader from "../shared/SectionHeader.astro";
+
+interface Props {
+  content: Entry<ItemFields>[];
+}
+
+const { content } = Astro.props;
+const data = Object.assign({}, ...content);
+---
+
+<Container class="service" id="services">
+  <SectionHeader>
+    <Fragment slot="title">{data.fields.title}</Fragment>
+    <Fragment slot="subtitle">{data.fields.legend}</Fragment>
+  </SectionHeader>
+
+  <div class="service-items">
+    {
+      data.fields.items.map((item: FieldsItem) => (
+        <div class="service-col">
+          <div class="service-item">
+            <div class="icon">
+              <i class={item.icon} />
+            </div>
+            <div class="name">
+              {item.name.split(" ", 2)[0]} <br />
+              {item.name.split(" ", 2)[1]}
+            </div>
+            <div class="single-post-text">
+              <p>{item.description}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="clear"></div>
+</Container>
