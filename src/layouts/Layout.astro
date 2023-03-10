@@ -13,16 +13,13 @@ export interface Props {
   content: Entry<ItemFields>[];
 }
 
-const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
+// const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const pathScripts = `${BASE_GITHUB}assets/scripts`;
+const pathScripts = `assets/scripts`;
 
-const resolvedImageWithDomain = new URL(
-  `${BASE_GITHUB}opengraph.jpg`,
-  Astro.site
-).toString();
+const resolvedImageWithDomain = new URL("opengraph.jpg", Astro.site).toString();
 
 const { title, lang, content } = Astro.props;
 
@@ -101,7 +98,7 @@ const makeTitle = title
     }
 
     <!-- Fonts -->
-    <link rel="shortcut icon" href= {`${BASE_GITHUB}favicon.ico`} type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
       rel="stylesheet"
