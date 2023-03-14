@@ -20,7 +20,19 @@ const data = Object.assign({}, ...content);
 
   <!-- contact form -->
   <div class="contact-form">
-    <form id="cform" method="post">
+    <form id="cform" method="post" class="needs-validation" novalidate>
+      <input
+        type="hidden"
+        name="access_key"
+        value="83bcf9da-0123-48be-b8f0-cd71909841ef"
+      />
+      <input
+        type="hidden"
+        name="subject"
+        value="New Submission from Web3Forms"
+      />
+      <input type="checkbox" name="botcheck" id="" style="display: none;" />
+
       <div class="group-val">
         <div class="label">
           {data.fields.formFields.name_field.label}
@@ -29,8 +41,12 @@ const data = Object.assign({}, ...content);
         <input
           type="text"
           name="name"
+          required
           placeholder={data.fields.formFields.name_field.placeholder}
         />
+        <div class="empty-feedback invalid-feedback text-red-500">
+          Please provide your full name.
+        </div>
       </div>
       <div class="group-val">
         <div class="label">
@@ -40,8 +56,15 @@ const data = Object.assign({}, ...content);
         <input
           type="email"
           name="email"
+          required
           placeholder={data.fields.formFields.email_field.placeholder}
         />
+        <div class="empty-feedback text-red-500">
+          Please provide your email address.
+        </div>
+        <div class="invalid-feedback text-red-500">
+          Please provide a valid email address.
+        </div>
       </div>
       <div class="group-val">
         <div class="label">
@@ -51,7 +74,11 @@ const data = Object.assign({}, ...content);
         <textarea
           name="message"
           placeholder={data.fields.formFields.message_field.placeholder}
-        ></textarea>
+          required></textarea>
+        <div class="empty-feedback invalid-feedback text-red-500">
+          Please enter your message.
+        </div>
+        <div id="result" class="align-center"></div>
       </div>
       <div class="group-bts">
         <button type="submit" class="btn">
@@ -64,9 +91,6 @@ const data = Object.assign({}, ...content);
         </button>
       </div>
     </form>
-    <div class="alert-success">
-      <p>{data.fields.formFields.alert_msg}</p>
-    </div>
   </div>
 
   <!-- contact info -->
@@ -102,3 +126,71 @@ const data = Object.assign({}, ...content);
 
   <div class="clear"></div>
 </Container>
+
+<style>
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+</style>
+
+<script is:inline>
+  const form = document.getElementById("cform");
+  const result = document.getElementById("result");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    form.classList.add("was-validated");
+    if (!form.checkValidity()) {
+      form.querySelectorAll(":invalid")[0].focus();
+      return;
+    }
+    const formData = new FormData(form);
+    const jsonData = JSON.stringify(Object.fromEntries(formData));
+
+    result.innerHTML = "Sending...";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: jsonData,
+    })
+      .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          result.classList.add("text-green-500");
+          result.innerHTML = json.message;
+        } else {
+          result.classList.add("text-red-500");
+          result.innerHTML = json.message;
+        }
+      })
+      .catch(() => {
+        result.classList.add("text-red-500");
+        result.innerHTML = "Something went wrong!";
+      })
+      .then(function () {
+        form.reset();
+        form.classList.remove("was-validated");
+        setTimeout(() => {
+          result.style.display = "none";
+        }, 5000);
+      });
+  });
+</script>

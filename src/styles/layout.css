@@ -3265,6 +3265,10 @@ blockquote {
 }
 
 /* - Contacts */
+
+.text-green-500 { color: #FDD935; }
+.text-red-500 { color: darkred; }
+
 .section.contacts .alert-success {
   display: none;
 }
