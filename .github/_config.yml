@@ -1,0 +1,11 @@
+lsi: false
+safe: true
+include: ["_astro"]
+source: /cv-sylvester-josue-rojas
+incremental: false
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
