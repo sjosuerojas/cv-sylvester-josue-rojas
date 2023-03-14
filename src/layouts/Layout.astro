@@ -13,13 +13,13 @@ export interface Props {
   content: Entry<ItemFields>[];
 }
 
-// const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
+const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const pathScripts = `assets/scripts`;
 
-const resolvedImageWithDomain = new URL("opengraph.jpg", Astro.site).toString();
+const resolvedImageWithDomain = new URL(`${BASE_GITHUB}opengraph.jpg`, Astro.site).toString();
 
 const { title, lang, content } = Astro.props;
 
@@ -119,18 +119,30 @@ const makeTitle = title
       <Footer />
     </div>
     <!-- Scripts -->
-    <script is:inline src={`${pathScripts}/jquery.min.js`}></script>
-    <script is:inline src={`${pathScripts}/velocity.min.js`}></script>
-    <script is:inline src={`${pathScripts}/jquery.validate.js`}></script>
-    <script is:inline src={`${pathScripts}/magnific-popup.js`}></script>
-    <script is:inline src={`${pathScripts}/typed.js`}></script>
-    <script is:inline src={`${pathScripts}/jarallax.js`}></script>
-    <script is:inline src={`${pathScripts}/jarallax-video.js`}></script>
-    <script is:inline src={`${pathScripts}/jarallax-element.js`}></script>
-    <script is:inline src={`${pathScripts}/imagesloaded.pkgd.js`}></script>
-    <script is:inline src={`${pathScripts}/isotope.pkgd.js`}></script>
-    <script is:inline src={`${pathScripts}/owl.carousel.js`}></script>
-    <script is:inline src={`${pathScripts}/swiper.js`}></script>
-    <script is:inline src={`${pathScripts}/main.js`}></script>
+    <script src={`${pathScripts}/jquery.min.js`}></script>
+    <script src={`${pathScripts}/velocity.min.js`}></script>
+    <script src={`${pathScripts}/jquery.validate.js`}></script>
+    <script src={`${pathScripts}/magnific-popup.js`}></script>
+    <script src={`${pathScripts}/typed.js`}></script>
+    <script src={`${pathScripts}/jarallax.js`}></script>
+    <script src={`${pathScripts}/jarallax-video.js`}></script>
+    <script src={`${pathScripts}/jarallax-element.js`}></script>
+    <script src={`${pathScripts}/imagesloaded.pkgd.js`}></script>
+    <script src={`${pathScripts}/isotope.pkgd.js`}></script>
+    <script src={`${pathScripts}/owl.carousel.js`}></script>
+    <script src={`${pathScripts}/swiper.js`}></script>
+    <script src={`${pathScripts}/main.js`}></script>
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="JVjHgkQ4Ec"
+      data-description="Support me on Buy me a coffee!"
+      data-message="Thanks, I'd like to share with you my knowledge"
+      data-color="#FDD935"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    ></script>
   </body>
 </html>

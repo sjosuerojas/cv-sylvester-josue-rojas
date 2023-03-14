@@ -234,6 +234,7 @@ export interface Amount {
 export interface Cta {
   icon: string;
   text: string;
+  action: string;
 }
 
 export interface FeatureList {
