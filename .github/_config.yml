@@ -1,1 +1,2 @@
-include: [_astro]
+include:
+  - _astro
