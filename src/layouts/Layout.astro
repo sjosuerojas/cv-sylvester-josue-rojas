@@ -19,7 +19,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const pathScripts = `assets/scripts`;
 
-const resolvedImageWithDomain = new URL(`${BASE_GITHUB}opengraph.jpg`, Astro.site).toString();
+const resolvedImageWithDomain = new URL(
+  `${BASE_GITHUB}opengraph.jpg`,
+  Astro.site
+).toString();
 
 const { title, lang, content } = Astro.props;
 
@@ -107,6 +110,16 @@ const makeTitle = title
       href="https://fonts.googleapis.com/css?family=Mr+Dafoe&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+
+    <script type="text/javascript">
+      var onloadCallback = function () {
+        grecaptcha.render("html_element", {
+          sitekey: "6LeUacAkAAAAABnGlM60oZTzLw6ecS4xiawcd-WK",
+        });
+      };
+    </script>
   </head>
   <body class="home">
     <!-- Preloader -->
@@ -143,6 +156,11 @@ const makeTitle = title
       data-position="Right"
       data-x_margin="18"
       data-y_margin="18"
+    ></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async
+      defer
     ></script>
   </body>
 </html>
