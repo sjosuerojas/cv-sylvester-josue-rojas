@@ -1,0 +1,118 @@
+---
+import { SEO } from "astro-seo";
+
+export interface Props {
+  title: string;
+  lang: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
+
+const resolvedImageWithDomain = new URL(
+  `${BASE_GITHUB}opengraph.jpg`,
+  Astro.site
+).toString();
+
+const { title, lang } = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "CV Portfolio"
+  : "CV Josue Rojas - Portfolio";
+---
+
+<meta charset="UTF-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
+<meta name="author" content="Josue Rojas" />
+<meta name="generator" content={Astro.generator} />
+
+<link rel="preconnect" href="https://www.google.com" />
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin />
+{
+  lang === "en-US" ? (
+    <SEO
+      title={makeTitle}
+      description="CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@SlyJosue",
+        title: makeTitle,
+        description:
+          "CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier.",
+        site: "@sjosuerojas.github.io",
+        image: resolvedImageWithDomain,
+        imageAlt: "Website Portfolio Josue Rojas",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `CV Josue Rojas - Portfolio Website`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "CV Josue Rojas Website Screenshot",
+        },
+      }}
+    />
+  ) : (
+    <SEO
+      title={makeTitle}
+      description="CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@SlyJosue",
+        title: makeTitle,
+        description:
+          "CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios.",
+        site: "@sjosuerojas.github.io",
+        image: resolvedImageWithDomain,
+        imageAlt: "Website Portfolio Josue Rojas",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `CV Josue Rojas - Portfolio Website`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "CV Josue Rojas Website Screenshot",
+        },
+      }}
+    />
+  )
+}
+
+<!-- Fonts -->
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Mr+Dafoe&display=swap"
+  rel="stylesheet"
+/>
+
+<script
+  type="text/partytown"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-KXFQBSZWQQ"
+></script>
+<script type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-KXFQBSZWQQ");
+</script>

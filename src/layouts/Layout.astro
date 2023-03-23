@@ -1,10 +1,11 @@
 ---
-import { SEO } from "astro-seo";
 import type { Entry } from "contentful";
 import type { ItemFields } from "../models/content.model";
 import Preloader from "../components/shared/Preloader.astro";
 import Header from "../components/shared/Header.astro";
 import Footer from "../components/shared/Footer.astro";
+import MetaTags from "../components/shared/MetaTags.astro";
+import Scripts from "../components/shared/Scripts.astro";
 import "../styles/global.css";
 
 export interface Props {
@@ -13,116 +14,15 @@ export interface Props {
   content: Entry<ItemFields>[];
 }
 
-const BASE_GITHUB = "/cv-sylvester-josue-rojas/";
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-
-const pathScripts = `assets/scripts`;
-
-const resolvedImageWithDomain = new URL(
-  `${BASE_GITHUB}opengraph.jpg`,
-  Astro.site
-).toString();
-
 const { title, lang, content } = Astro.props;
-
-const makeTitle = title
-  ? title + " | " + "CV Portfolio"
-  : "CV Josue Rojas - Portfolio";
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
-    <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <meta name="author" content="Josue Rojas" />
-    <meta name="generator" content={Astro.generator} />
-    {
-      lang === "en-US" ? (
-        <SEO
-          title={makeTitle}
-          description="CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier."
-          canonical={canonicalURL}
-          twitter={{
-            creator: "@SlyJosue",
-            title: makeTitle,
-            description:
-              "CV Josue Rojas I'm a developer with a passion for creating intuitive, user-friendly applications that make users' lives easier.",
-            site: "@sjosuerojas.github.io",
-            image: resolvedImageWithDomain,
-            imageAlt: "Website Portfolio Josue Rojas",
-            card: "summary_large_image",
-          }}
-          openGraph={{
-            basic: {
-              url: canonicalURL,
-              type: "website",
-              title: `CV Josue Rojas - Portfolio Website`,
-              image: resolvedImageWithDomain,
-            },
-            image: {
-              alt: "CV Josue Rojas Website Screenshot",
-            },
-          }}
-        />
-      ) : (
-        <SEO
-          title={makeTitle}
-          description="CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios."
-          canonical={canonicalURL}
-          twitter={{
-            creator: "@SlyJosue",
-            title: makeTitle,
-            description:
-              "CV Josue Rojas Soy un desarrollador con pasión por crear aplicaciones intuitivas y fáciles de usar que faciliten la vida de los usuarios.",
-            site: "@sjosuerojas.github.io",
-            image: resolvedImageWithDomain,
-            imageAlt: "Website Portfolio Josue Rojas",
-            card: "summary_large_image",
-          }}
-          openGraph={{
-            basic: {
-              url: canonicalURL,
-              type: "website",
-              title: `CV Josue Rojas - Portfolio Website`,
-              image: resolvedImageWithDomain,
-            },
-            image: {
-              alt: "CV Josue Rojas Website Screenshot",
-            },
-          }}
-        />
-      )
-    }
-
-    <!-- Fonts -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Mr+Dafoe&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://www.google.com" />
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
-
-    <script type="text/javascript">
-      var onloadCallback = function () {
-        grecaptcha.render("html_element", {
-          sitekey: "6LeUacAkAAAAABnGlM60oZTzLw6ecS4xiawcd-WK",
-        });
-      };
-    </script>
+    <MetaTags lang={lang} title={title} />
   </head>
   <body class="home">
-    <!-- Preloader -->
     <Preloader />
     <div class="container">
       <Header lang={lang} content={content} />
@@ -131,36 +31,6 @@ const makeTitle = title
       </div>
       <Footer />
     </div>
-    <!-- Scripts -->
-    <script src={`${pathScripts}/jquery.min.js`}></script>
-    <script src={`${pathScripts}/velocity.min.js`}></script>
-    <script src={`${pathScripts}/jquery.validate.js`}></script>
-    <script src={`${pathScripts}/magnific-popup.js`}></script>
-    <script src={`${pathScripts}/typed.js`}></script>
-    <script src={`${pathScripts}/jarallax.js`}></script>
-    <script src={`${pathScripts}/jarallax-video.js`}></script>
-    <script src={`${pathScripts}/jarallax-element.js`}></script>
-    <script src={`${pathScripts}/imagesloaded.pkgd.js`}></script>
-    <script src={`${pathScripts}/isotope.pkgd.js`}></script>
-    <script src={`${pathScripts}/owl.carousel.js`}></script>
-    <script src={`${pathScripts}/swiper.js`}></script>
-    <script src={`${pathScripts}/main.js`}></script>
-    <script
-      data-name="BMC-Widget"
-      data-cfasync="false"
-      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-      data-id="JVjHgkQ4Ec"
-      data-description="Support me on Buy me a coffee!"
-      data-message="Thanks for visiting my website, if love what I do you can contribute to my work"
-      data-color="#FDD935"
-      data-position="Right"
-      data-x_margin="18"
-      data-y_margin="18"
-    ></script>
-    <script
-      src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-      async
-      defer
-    ></script>
+    <Scripts />
   </body>
 </html>
