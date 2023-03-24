@@ -82,7 +82,7 @@
     <script>
       !(function (w, p, f, c) {
         c = w[p] = Object.assign(w[p] || {}, {
-          lib: "/partytown/",
+          lib: "./partytown/",
           debug: false,
         });
         c[f] = (c[f] || []).concat(["dataLayer.push"]);
@@ -92,7 +92,7 @@
           l ||
             ((l = 1),
             "/" ==
-              (a = (o.lib || "/partytown/") + (o.debug ? "debug/" : ""))[0] &&
+              (a = (o.lib || "./partytown/") + (o.debug ? "debug/" : ""))[0] &&
               ((s = e.querySelectorAll('script[type="text/partytown"]')),
               i != t
                 ? i.dispatchEvent(new CustomEvent("pt1", { detail: t }))
