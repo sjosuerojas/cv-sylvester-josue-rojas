@@ -1,6 +1,6 @@
 ---
 import type { Entry } from "contentful";
-import type { ItemFields } from "../../models/content.model";
+import type { ItemFields, ContactInfo } from "../../models/content.model";
 import Container from "../shared/Container.astro";
 import SectionHeader from "../shared/SectionHeader.astro";
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
-const data = Object.assign({}, ...content);
+const data: ContactInfo = Object.assign({}, ...content);
 ---
 
 <Container class="contacts" id="more-info">
@@ -95,33 +95,22 @@ const data = Object.assign({}, ...content);
 
   <!-- contact info -->
   <div class="contact-info">
-    <div class="name">{data.fields.properties.name}</div>
-    <div class="subname">{data.fields.properties.subname}</div>
+    <div class="name">Josué Rojas</div>
+    <div class="subname">{data.fields.workPosition}</div>
     <div class="info-list">
       <ul>
-        <li>
-          <strong>{data.fields.infoKey[0]}:</strong>
-          {data.fields.properties.residence}
-        </li>
-        <li>
-          <strong>{data.fields.infoKey[1]}:</strong>
-          {data.fields.properties.freelance}
-        </li>
-        <li>
-          <strong>{data.fields.infoKey[2]}:</strong>
-          {data.fields.properties.specialty}
-        </li>
-        <li>
-          <strong>{data.fields.infoKey[3]}:</strong>
-          {data.fields.properties.phone}
-        </li>
-        <li>
-          <strong>{data.fields.infoKey[4]}:</strong>
-          {data.fields.properties.mail}
-        </li>
+        {
+          Object.entries(data.fields.properties).map(
+            ([_, { title, value }]) => (
+              <li>
+                <strong>{title}:</strong> {value}
+              </li>
+            )
+          )
+        }
       </ul>
     </div>
-    <div class="author">{data.fields.properties.name}</div>
+    <div class="author">Josué Rojas</div>
   </div>
 
   <div class="clear"></div>
@@ -151,46 +140,51 @@ const data = Object.assign({}, ...content);
   const form = document.getElementById("cform");
   const result = document.getElementById("result");
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     form.classList.add("was-validated");
     if (!form.checkValidity()) {
       form.querySelectorAll(":invalid")[0].focus();
       return;
     }
+    const response = grecaptcha.getResponse();
     const formData = new FormData(form);
     const jsonData = JSON.stringify(Object.fromEntries(formData));
 
-    result.innerHTML = "Sending...";
+    if (response.length === 0) {
+      result.classList.add("text-red-500");
+      result.innerHTML = "Check reCAPCHA";
+    } else {
+      result.innerHTML = "Sending...";
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: jsonData,
+        });
 
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: jsonData,
-    })
-      .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
+        const json = await response.json();
+
+        if (response.status === 200) {
           result.classList.add("text-green-500");
           result.innerHTML = json.message;
         } else {
           result.classList.add("text-red-500");
           result.innerHTML = json.message;
         }
-      })
-      .catch(() => {
+      } catch (error) {
         result.classList.add("text-red-500");
         result.innerHTML = "Something went wrong!";
-      })
-      .then(function () {
+      } finally {
         form.reset();
         form.classList.remove("was-validated");
         setTimeout(() => {
           result.style.display = "none";
         }, 5000);
-      });
+      }
+    }
   });
 </script>

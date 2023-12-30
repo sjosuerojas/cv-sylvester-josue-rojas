@@ -23,10 +23,9 @@ const data = Object.assign({}, ...content);
     <ul>
       {
         data.fields.skills.map((item: Language) => (
-          <li>
-            <div class="progress p85">
-              <div class="percentage" />
-              <span>{item.percentage}%</span>
+          <li class="skill-item">
+            <div class="icons">
+              <i class={item.icon} />
             </div>
             <div class="name">{item.name}</div>
             <div class="single-post-text">

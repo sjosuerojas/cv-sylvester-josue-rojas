@@ -7,98 +7,98 @@
 	- Theme Yellow #FDD935
 */
 :root {
-	--default-theme-color: #FDD935;
+  --default-theme-color: #fdd935;
 }
 
 .preloader .box-1 {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 .preloader .spinner .lines:after {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 a:hover {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .animated-button span {
-	text-shadow: 0 16px 0 var(--default-theme-color);
+  text-shadow: 0 16px 0 var(--default-theme-color);
 }
 
 a.btn:hover,
 .btn:hover,
 .single-post-text input[type="submit"]:hover,
 button:hover {
-	border-color: var(--default-theme-color);
+  border-color: var(--default-theme-color);
 }
 
 a.btn:hover .icon,
 .btn:hover .icon,
 .single-post-text input[type="submit"]:hover .icon,
 button:hover .icon {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .header .top-menu ul li.current-menu-item > a {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .header .top-menu-nav .sub-menu li a:hover,
 .header .top-menu-nav .children li a:hover,
 .header .top-menu-nav .sub-menu li.active a,
 .header .top-menu-nav .children li.active a {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .background-filter {
-	background-color: var(--default-theme-color);
+  background-color: var(--default-theme-color);
 }
 
 .section .titles .subtitle {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .section.started .h-title strong {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .section.started .started-content .h-subtitle,
 .section.started .started-content .typed-subtitle,
 .section.started .started-content .typed-cursor {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .info-list ul li strong {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .resume-item .date {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .resume-item .icon {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .skills .progress .percentage {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 .skills .progress .percentage .percent {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .skills.list .name:before {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .skills.dotted .progress .da span {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 .skills.circles .progress span {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .skills.circles .progress .bar,
@@ -152,57 +152,61 @@ button:hover .icon {
 .skills.circles .progress.p98 .fill,
 .skills.circles .progress.p99 .fill,
 .skills.circles .progress.p100 .fill {
-	border-color: var(--default-theme-color);
+  border-color: var(--default-theme-color);
+}
+
+.skill-item .icons {
+  color: var(--default-theme-color);
 }
 
 .service-item .icon {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .section.works .filters label.glitch-effect {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .box-items .box-item:hover .desc .name {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .box-items .box-item .image .info .centrize {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 .box-items .box-item .desc .category {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .contact-form .group-val .label strong {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .contact-info .subname {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .pricing-item .icons {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .pricing-item .feature-list ul li strong {
-	background: var(--default-theme-color);
+  background: var(--default-theme-color);
 }
 
 .reviews-item .company {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 .reviews-item .text:before {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
 
 blockquote {
-	border-left-color: var(--default-theme-color);
+  border-left-color: var(--default-theme-color);
 }
 
 .footer .socials a:hover {
-	color: var(--default-theme-color);
+  color: var(--default-theme-color);
 }
