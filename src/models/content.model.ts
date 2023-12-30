@@ -122,11 +122,9 @@ export interface ItemFields {
   items?: FieldsItem[];
   post1?: Description;
   post2?: Description;
-  post3?: Description;
   infoList?: string[];
   link1?: string;
   link2?: string;
-  link3?: string;
 }
 
 export interface BoxItem {
@@ -208,7 +206,7 @@ export interface FieldsItem {
 
 export interface Language {
   name: string;
-  percentage: string;
+  icon: string;
   single_post_text: string;
 }
 
@@ -262,4 +260,46 @@ export interface Recommendation {
 
 export interface ContentfulSys {
   type: string;
+}
+
+export interface ContactInfo {
+  fields: FieldsContact;
+}
+
+export interface FieldsContact {
+  title: string;
+  legend: string;
+  formFields: FormFieldsCI;
+  properties: PropertiesCI;
+  workPosition: string;
+}
+
+export interface FormFieldsCI {
+  send_btn: SendBtnCI;
+  alert_msg: string;
+  name_field: FieldCI;
+  email_field: FieldCI;
+  message_field: FieldCI;
+}
+
+export interface FieldCI {
+  label: string;
+  placeholder: string;
+}
+
+export interface SendBtnCI {
+  icon: string;
+  label: string;
+}
+
+export interface PropertiesCI {
+  email: PropCI;
+  freelance: PropCI;
+  residence: PropCI;
+  specialty: PropCI;
+}
+
+export interface PropCI {
+  title: string;
+  value: string;
 }

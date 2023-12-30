@@ -3047,6 +3047,13 @@ blockquote {
   }
 }
 
+.skill-item .icons {
+  font-size: 46px;
+  height: 46px;
+  margin: 12px 0 12px 0;
+  color: #68e0cf;
+}
+
 /* - Clients */
 .clients-item {
   display: flex;
@@ -3266,11 +3273,17 @@ blockquote {
 
 /* - Contacts */
 
-#html_element { padding: 27px 0; }
+#html_element {
+  padding: 27px 0;
+}
 
-.text-green-500 { color: #FDD935; }
+.text-green-500 {
+  color: #fdd935;
+}
 
-.text-red-500 { color: darkred; }
+.text-red-500 {
+  color: darkred;
+}
 
 .section.contacts .alert-success {
   display: none;
