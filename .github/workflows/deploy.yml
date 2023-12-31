@@ -12,20 +12,6 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latestname: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ develop ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  build:
     runs-on: ubuntu-latest
     environment: CMS_CONFIG
     env:
@@ -36,7 +22,6 @@ jobs:
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
         uses: withastro/action@v1
-    
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -47,28 +32,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-        
-
-    environment: CMS_CONFIG
-    env:
-      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
-    steps:
-      - name: Check SECRETS
-        run: echo "My existing secret is ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}"
-      - name: Checkout your repository using git
-        uses: actions/checkout@v3
-      - name: Install, build, and upload your site
-        uses: withastro/action@v1
-    
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        
