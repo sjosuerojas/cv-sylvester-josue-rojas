@@ -7,6 +7,7 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
   site: "https://sjosuerojas.github.io",
   integrations: [
+    sitemap(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
@@ -15,6 +16,5 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
-    sitemap(),
   ],
 });
