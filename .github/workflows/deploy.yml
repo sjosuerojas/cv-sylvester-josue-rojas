@@ -13,14 +13,18 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: CMS_CONFIG
+    env:
+      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+      CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
     steps:
+      - name: Check SECRETS
+        run: echo "My existing secret is ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}"
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
         uses: withastro/action@v1
-    env:
-      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-      CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN }}
+    
   deploy:
     needs: build
     runs-on: ubuntu-latest
