@@ -15,12 +15,12 @@ import ContactInfo from "../components/sections/ContactInfo.astro";
 import Experience from "../components/sections/Experience.astro";
 import BackgroundGardient from "../components/shared/BackgroundGardient.astro";
 
-const contentTypes = await contentfulClient.getEntries<ItemFields>({
+const contentType = await contentfulClient.getEntries<ItemFields>({
   locale: "es",
 });
 
 const getContentById = (id: string) =>
-  contentTypes.items.filter((item) => item.metadata.tags[0].sys.id === id);
+  contentType.items.filter((item) => item.metadata.tags[0].sys.id === id);
 ---
 
 <Layout lang="es-ES" title="Josue Rojas" content={getContentById("head")}>
@@ -45,7 +45,7 @@ const getContentById = (id: string) =>
   <!-- Section Testimonials -->
   <Testimonials content={getContentById("testimonials")} />
   <!-- Section Works -->
-  <Works content={getContentById('works')} />
+  <Works content={getContentById("works")} />
   <!-- Section Contact Info -->
   <ContactInfo content={getContentById("contact")} />
 </Layout>

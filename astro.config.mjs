@@ -6,8 +6,8 @@ import partytown from "@astrojs/partytown";
 /** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
   site: "https://sjosuerojas.github.io",
-  outDir: "docs",
   integrations: [
+    sitemap(),
     partytown({
       config: {
         forward: ["dataLayer.push"],
@@ -16,6 +16,5 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
-    sitemap(),
   ],
 });
