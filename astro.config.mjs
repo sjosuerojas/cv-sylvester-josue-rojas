@@ -6,7 +6,6 @@ import partytown from "@astrojs/partytown";
 /** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
   site: "https://sjosuerojas.github.io",
-  outDir: "docs",
   integrations: [
     partytown({
       config: {
