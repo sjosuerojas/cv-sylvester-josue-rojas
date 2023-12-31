@@ -6,6 +6,7 @@ import partytown from "@astrojs/partytown";
 /** @type {import('astro').AstroUserConfig} */
 export default defineConfig({
   site: "https://sjosuerojas.github.io",
+  base: "/cv-sylvester-josue-rojas",
   integrations: [
     sitemap(),
     partytown({
